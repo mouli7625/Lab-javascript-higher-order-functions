@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>High Order Function </title>
+    </head>
+    <body>
+        <p>Answer of Array Slice function: <b id="one"> </b> </p><br>
+        <p>Answer of Array Splice function: <b id="2"> </b></p><br>
+        <p>Answer of Filter: <b id="3"> </b></p><br>
+        <p>Answer of Reject: <b id="4"> </b></p><br>
+        <p>Answer of Lambda: <b id="5"> </b></p><br>
+        <p>Answer of Map: <b id="6"> </b></p><br>
+        <p>Answer of Reduce: <b id="7"> </b></p><br>
+        <script>
+            //slice funtion
+            const foods = ['pizza', 'burger', 'fingerChips', 'donuts', 'springRoll'];
+            const modifiedFood=foods.slice(1,4);
+            document.getElementById("one").innerHTML=modifiedFood;
+           //splice function
+            const foods1 = ['pizza', 'burger', 'fingerShips', 'donuts', 'springRoll'];
+           const  modifiedFood1=foods1;
+            modifiedFood1.splice(2,0,'noodles','icecream');
+            document.getElementById("2").innerHTML=modifiedFood1;
+            //filter function
+            let numberArray = [12,324,213,4,2,3,45,4234];
+            document.getElementById("3").innerHTML=numberArray.filter(isPrime);
+            function isPrime(n){
+                var cnt=0,i,j;
+                    for( j=1;j<=n;j++){
+                        if(n%j==0){
+                            cnt=cnt+1;
+                        }
+                        
+                    }
+                    if(cnt==2){
+                       return n;
+                    }
+                }
+                // reject
+                let numberArray1 = [12,324,213,4,2,3,45,4234];
+            document.getElementById("4").innerHTML=numberArray1.filter(nonPrime);
+            function nonPrime(n){
+                var cnt=0,i,j;
+                    for( j=1;j<=n;j++){
+                        if(n%j==0){
+                            cnt=cnt+1;
+                        }
+                        
+                    }
+                    if(cnt!=2){
+                       return n;
+                    }
+                }
+                //Lambda function
+                let numberArray2 = [12,324,213,4,2,3,45,4234];
+                document.getElementById("5").innerHTML=numberArray2.filter(item=>item%2==0);
+                //Map
+                const myArray = [11, 34, 20, 5, 53, 16];
+                const sqr= myArray.map(square);
+                function square(n){
+                    return n*n;
+                }
+                document.getElementById("6").innerHTML=sqr;
+                //Reduce 
+                const my=[2, 3, 5, 10];
+                document.getElementById("7").innerHTML=my.reduce(fun);
+                function fun(a,b){
+                    return a*b;
+                }
+        </script>
+    
+    </body>
+</html>
